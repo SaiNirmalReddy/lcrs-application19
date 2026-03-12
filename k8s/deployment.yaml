@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: lcrs-app
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lcrs-app
+  template:
+    metadata:
+      labels:
+       app: lcrs-app
+    spec: 
+      containers: 
+      - name: lcrs-container
+      image: lcrs-app:latest
+
+      ports:
+      - containerPort : 80
