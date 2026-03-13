@@ -1,12 +1,16 @@
 pipeline {
     agent any
 
+    tools {
+        sonarScanner 'sonar-scanner'
+    }
+
     stages {
 
         stage('SonarQube Scan') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh 'sonar-scanner'
+                    sh "${tool 'sonar-scanner'}/bin/sonar-scanner"
                 }
             }
         }
