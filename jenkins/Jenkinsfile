@@ -3,6 +3,14 @@ pipeline {
 
     stages {
 
+        stage('SonaQube Scan')
+           steps {
+               withSonarQubeEnv('SonarQube') {
+                   sh 'sonar-scanner'
+               }
+           }
+       }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t sai1docker/lcrs-app -f docker/Dockerfile .'
