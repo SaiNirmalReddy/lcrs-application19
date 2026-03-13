@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Trivy Scan') {
            steps {
-               sh 'trivy image sai1docker/lcrs-app -f docker/Dockerfile .'
+               sh 'trivy image sai1docker/lcrs-app'
             }
         }
 
